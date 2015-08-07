@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.root.com.example.utils.ScreenPix;
 import com.example.root.view.AudioRecorderButton;
 
 
@@ -19,7 +20,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         recorderButton = (AudioRecorderButton) this.findViewById(R.id.recorder_button);
-        recorderButton.setHeight();
+        recorderButton.setHeight((new ScreenPix(this).getScreenHeight())/15);
 
 
     }

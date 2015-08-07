@@ -30,8 +30,8 @@ public class ScreenPix {
         }else{
             return 0;
         }
-
     }
+
     public int getScreenHeight(){
         if (dm != null) {
             screenHeight = dm.heightPixels;
