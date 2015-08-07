@@ -6,18 +6,27 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.root.view.AudioRecorderButton;
+
 
 public class MainActivity extends Activity {
+
+    private AudioRecorderButton recorderButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recorderButton = (AudioRecorderButton) this.findViewById(R.id.recorder_button);
+        recorderButton.setHeight();
+
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present.q
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
