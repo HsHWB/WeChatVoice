@@ -3,6 +3,7 @@ package com.example.root.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.root.wechatvoice.R;
@@ -20,14 +21,24 @@ public class AudioRecorderButton extends Button {
     private static final int DISTANCE_Y_CANCLE = 50;
     private boolean isRecording = false;
     private int mCurState;
+    private DialogManager mDialogManager;
 
 
     public AudioRecorderButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mDialogManager = new DialogManager(getContext());
+        setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                //TODO 真正显示应该在audio end prepared以后
+                mDialogManager.showRecordingDialog();
+                isRecording = true;
+                return false;
+            }
+        });
     }
 
     public AudioRecorderButton(Context context) {
-
         super(context, null);
     }
 
@@ -40,7 +51,6 @@ public class AudioRecorderButton extends Button {
 
         switch (action){
             case MotionEvent.ACTION_DOWN:
-                isRecording = true;
                 changeState(STATE_RECORDING);
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -56,9 +66,9 @@ public class AudioRecorderButton extends Button {
                 break;
             case MotionEvent.ACTION_UP:
                 if (mCurState == STATE_RECORDING){
-                    
+                    mDialogManager.dimissDialog();
                 }else if (mCurState == STATE_CANCLE){
-                    
+                    mDialogManager.dimissDialog();
                 }
                 reset();
                 break;
@@ -107,6 +117,7 @@ public class AudioRecorderButton extends Button {
                      */
                     if (isRecording){
                         //TODO Dialog.recording();
+                        mDialogManager.recording();
                     }
                     break;
                 case STATE_CANCLE:
@@ -117,6 +128,7 @@ public class AudioRecorderButton extends Button {
                      */
                     if (isRecording){
                         //TODO Dialog.cancle();
+                        mDialogManager.wantToCancle();
                     }
                     break;
             }
