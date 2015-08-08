@@ -5,4 +5,17 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme_AudioDialog">
+        <!--背景色是透明的-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--没有边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--dialog是否浮动-->
+        <item name="android:windowIsFloating">true</item>
+        <!--半透明-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--dialog弹出时屏幕是否需要变暗-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
 </resources>

@@ -6,5 +6,6 @@
     <string name="recorder_normal">按住说话</string>
     <string name="recorder_recordering">松开结束</string>
     <string name="recorder_cancle">松开手指，取消发送</string>
+    <string name="recorder_too_short">录音时间过短</string>
     <string name="tx_dialog">手指上划，取消发送</string>
 </resources>
