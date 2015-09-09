@@ -15,9 +15,21 @@ import java.util.ResourceBundle;
  */
 public class AudioRecorderButton extends Button {
 
+    /**
+     *
+     */
     private static final int STATE_NORMAL = 1;
+    /**
+     *
+     */
     private static final int STATE_RECORDING = 2;
+    /**
+     *
+     */
     private static final int STATE_CANCLE = 3;
+    /**
+     *
+     */
     private static final int DISTANCE_Y_CANCLE = 50;
     private boolean isRecording = false;
     private int mCurState;
@@ -53,7 +65,7 @@ public class AudioRecorderButton extends Button {
             case MotionEvent.ACTION_DOWN:
                 changeState(STATE_RECORDING);
                 break;
-            case MotionEvent.ACTION_MOVE:
+             case MotionEvent.ACTION_MOVE:
                 //已经在录音
                 if (isRecording){
                     //根据x，y坐标，判断是否想要取消
@@ -70,6 +82,7 @@ public class AudioRecorderButton extends Button {
                 }else if (mCurState == STATE_CANCLE){
                     mDialogManager.dimissDialog();
                 }
+                mDialogManager.dimissDialog();
                 reset();
                 break;
         }
